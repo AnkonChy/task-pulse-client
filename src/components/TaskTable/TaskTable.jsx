@@ -1,10 +1,48 @@
 import React from "react";
+import Swal from "sweetalert2";
 import { FaEdit, FaFile, FaTrash } from "react-icons/fa";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
-const TaskTable = ({ idx, task }) => {
+const TaskTable = ({ idx, task, tasks, setTasks }) => {
+  const axiosPublic = useAxiosPublic();
+
   const { _id, title, description, timestamp, category } = task;
 
-  const handleDelete = () => {};
+  const handleUpdate = () => {};
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    });
+
+    axiosPublic.delete(`/tasks/${id}`).then((res) => {
+      const newData = tasks.filter((task) => id != task._id);
+      setTasks(newData);
+      if (res.deletedCount) {
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        });
+      }
+    });
+
+    // .then((result) => {
+    //   if (result.isConfirmed) {
+    //     Swal.fire({
+    //       title: "Deleted!",
+    //       text: "Your file has been deleted.",
+    //       icon: "success"
+    //     });
+    //   }
+    // });
+  };
   return (
     <>
       <tr>
@@ -18,8 +56,8 @@ const TaskTable = ({ idx, task }) => {
         <td>
           <div className="flex gap-4">
             <button
-              onClick={() => handleDelete(_id)}
-              className="bg-orange-500 px-4 py-2 rounded text-white"
+              onClick={() => handleUpdate(_id)}
+              className="bg-green-500 px-4 py-2 rounded text-white"
             >
               <FaEdit />
             </button>
@@ -38,11 +76,6 @@ const TaskTable = ({ idx, task }) => {
             >
               <FaTrash className=""></FaTrash>
             </button>
-            {/* <button className="bg-green-500 px-4 py-2 rounded text-white">
-                <Link to={`/update/${_id}`}>
-                  <FaFile />
-                </Link>
-              </button> */}
           </div>
         </td>
       </tr>

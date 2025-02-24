@@ -3,6 +3,7 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAuth from "../../Hooks/useAuth";
 import TaskTable from "../../components/TaskTable/TaskTable";
 
+
 const AllTask = () => {
   const { user } = useAuth();
 
@@ -14,10 +15,10 @@ const AllTask = () => {
       setTasks(res.data);
     });
   }, [axiosPublic, user?.email]);
-  console.log(tasks);
+  console.log(tasks); 
   return (
     <div className="w-1/2 mx-auto bg-slate-50 mt-14">
-      <h1 className="text-5xl font-bold text-center my-8">Food Request</h1>
+      <h1 className="text-5xl font-bold text-center my-8">My Tasks</h1>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
@@ -37,14 +38,7 @@ const AllTask = () => {
               <p>No data found</p>
             ) : (
               tasks.map((task, index) => (
-                // <FoodRequestTable
-                //   idx={index}
-                //   key={food?._id}
-                //   food={food}
-                //   foodRequest={foodRequest}
-                //   setFoodRequest={setFoodRequest}
-                // ></FoodRequestTable>
-                <TaskTable idx={index} key={task._id} task={task}></TaskTable>
+                <TaskTable idx={index} key={task._id} task={task} tasks={tasks} setTasks={setTasks}></TaskTable>
               ))
             )}
           </tbody>
