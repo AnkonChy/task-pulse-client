@@ -21,14 +21,14 @@ const Navbar = () => {
           to="/"
           className="animate__animated animate__rubberBand Left text-2xl md:text-3xl font-bold"
         >
-          QuickGig
+          TaskPulse
         </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-7 font-semibold md:text-xl items-center">
           <>
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/tasks">All Tasks</NavLink>
+            <NavLink to="/allTask">All Tasks</NavLink>
             <NavLink to="/addTask">Add Tasks</NavLink>
             <NavLink to="/aboutUs">About Us</NavLink>
             <NavLink to="/dashboard">Dashboard</NavLink>
@@ -83,7 +83,7 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow right-0 z-10 space-y-2"
           >
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/tasks">All Tasks</NavLink>
+            <NavLink to="/allTask">All Tasks</NavLink>
             <NavLink to="/aboutUs">About Us</NavLink>
             <NavLink to="/dashboard">Dashboard</NavLink>
             <NavLink to="/profile">User Profile</NavLink>

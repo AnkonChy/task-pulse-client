@@ -12,7 +12,7 @@ import {
 // import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
-import useAxiosPublic from "../hooks/useAxiosPublic";
+// import useAxiosPublic from "../hooks/useAxiosPublic";
 
 export const AuthContext = createContext();
 
@@ -52,9 +52,10 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log(currentUser);
       setUser(currentUser);
+      setLoading(false);
       // const userInfo = {
       //   email: currentUser?.email,
       // };
@@ -71,10 +72,10 @@ const AuthProvider = ({ children }) => {
       //   localStorage.removeItem("access-token");
       //   setLoading(false);
       // }
+      return () => {
+        return unsubscribe();
+      };
     });
-    return () => {
-      return unsubscribe();
-    };
   }, []);
 
   const authInfo = {

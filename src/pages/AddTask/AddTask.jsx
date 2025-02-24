@@ -1,8 +1,12 @@
 import { toast } from "react-toastify";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import useAuth from "../../Hooks/useAuth";
 
 const AddTask = () => {
+  const { user } = useAuth();
+  const email = user.email;
+
   const axiosPublic = useAxiosPublic();
   const handleAddTask = (e) => {
     e.preventDefault();
@@ -27,6 +31,7 @@ const AddTask = () => {
       description,
       timestamp,
       category,
+      email,
     };
 
     axiosPublic.post("/tasks", taskData).then((res) => {
