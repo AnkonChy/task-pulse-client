@@ -40,13 +40,13 @@ const UpdateTask = () => {
           <div className="flex gap-6 items-center">
             <div className="form-control md:w-1/2 my-4">
               <label className="label">
-                <span className="label-text font-bold">Title</span>
+                <span className="label-text font-bold my-1">Title</span>
               </label>
               <input
                 type="text"
                 name="title"
                 placeholder="Title"
-                className="input input-bordered"
+                className="input input-bordered w-full"
                 value={title}
                 onChange={(e) => {
                   setTitle(e.target.value);
@@ -56,10 +56,10 @@ const UpdateTask = () => {
             </div>
             <div className="form-control md:w-1/2">
               <label className="label">
-                <span className="label-text font-bold">Description</span>
+                <span className="label-text font-bold my-1">Description</span>
               </label>
               <textarea
-                className="input input-bordered"
+                className="input input-bordered w-full"
                 name="description"
                 placeholder="Description"
                 rows="4"
@@ -72,14 +72,14 @@ const UpdateTask = () => {
           <div className="flex gap-6 items-center">
             <div className="form-control md:w-1/2">
               <label className="label">
-                <span className="label-text font-bold">Timestamp</span>
+                <span className="label-text font-bold my-1">Timestamp</span>
               </label>
 
               <input
                 type="date"
                 name="timestamp"
                 placeholder="Timestamp"
-                className="input input-bordered"
+                className="input input-bordered w-full"
                 value={timestamp}
                 onChange={(e) => setTimestamp(e.target.value)}
                 required
@@ -87,11 +87,11 @@ const UpdateTask = () => {
             </div>
             <div className="form-control md:w-1/2">
               <label className="label">
-                <span className="label-text font-bold">Category</span>
+                <span className="label-text font-bold my-1">Category</span>
               </label>
 
               <select
-                className="input input-bordered"
+                className="input input-bordered w-full"
                 name="category"
                 value={category}
                 onChange={(e) => {

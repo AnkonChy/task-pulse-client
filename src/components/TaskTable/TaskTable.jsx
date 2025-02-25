@@ -20,19 +20,31 @@ const TaskTable = ({ idx, task, tasks, setTasks }) => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
-    });
-
-    axiosPublic.delete(`/tasks/${id}`).then((res) => {
-      const newData = tasks.filter((task) => id != task._id);
-      setTasks(newData);
-      if (res.deletedCount) {
-        Swal.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
-          icon: "success",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosPublic.delete(`tasks/${id}`).then((res) => {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your task has been deleted.",
+            icon: "success",
+          });
+          const newData = tasks.filter((task) => id != task._id);
+          setTasks(newData);
         });
       }
     });
+
+    // axiosPublic.delete(`/tasks/${id}`).then((res) => {
+    //   const newData = tasks.filter((task) => id != task._id);
+    //   setTasks(newData);
+    //   if (res.deletedCount) {
+    //     Swal.fire({
+    //       title: "Deleted!",
+    //       text: "Your file has been deleted.",
+    //       icon: "success",
+    //     });
+    //   }
+    // });
   };
   return (
     <>

@@ -32,7 +32,7 @@ const Login = () => {
           <div className="relative">
             <img
               className="w-[500px] h-full rounded-lg object-cover"
-              src="https://i.ibb.co.com/0XT6scB/mohammad-rahmani-Lrx-Sl4-Zxo-Rs-unsplash.jpg"
+              src="https://i.ibb.co.com/sJdyvDn1/ian-dooley-DJ7b-Wa-Gwks-unsplash.jpg"
               alt=""
             />
             <div className="absolute inset-0 bg-[#2B2738] bg-opacity-30"></div>

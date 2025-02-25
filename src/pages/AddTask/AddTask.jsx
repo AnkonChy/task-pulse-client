@@ -54,28 +54,28 @@ const AddTask = () => {
 
   return (
     <div>
-      <div className="bg-[#F4F3F0] lg:p-24">
-        <h2 className="text-3xl text-center font-bold my-10">Add Task</h2>
+      <div className="bg-[#F4F3F0] p-24">
+        <h2 className="text-4xl text-center font-bold pt-14 pb-10">Add Task</h2>
         <form onSubmit={handleAddTask}>
           <div className="flex gap-6 items-center">
             <div className="form-control md:w-1/2 my-4">
               <label className="label">
-                <span className="label-text font-bold">Title</span>
+                <span className="label-text font-bold my-1">Title</span>
               </label>
               <input
                 type="text"
                 name="title"
                 placeholder="Title"
-                className="input input-bordered"
+                className="input input-bordered w-full"
                 required
               />
             </div>
             <div className="form-control md:w-1/2">
               <label className="label">
-                <span className="label-text font-bold">Description</span>
+                <span className="label-text font-bold my-1">Description</span>
               </label>
               <textarea
-                className="input input-bordered"
+                className="input input-bordered w-full"
                 name="description"
                 placeholder="Description"
                 rows="4"
@@ -86,23 +86,23 @@ const AddTask = () => {
           <div className="flex gap-6 items-center">
             <div className="form-control md:w-1/2">
               <label className="label">
-                <span className="label-text font-bold">Timestamp</span>
+                <span className="label-text font-bold my-1">Timestamp</span>
               </label>
 
               <input
                 type="date"
                 name="timestamp"
                 placeholder="Timestamp"
-                className="input input-bordered"
+                className="input input-bordered w-full"
                 required
               />
             </div>
             <div className="form-control md:w-1/2">
               <label className="label">
-                <span className="label-text font-bold">Category</span>
+                <span className="label-text font-bold my-1">Category</span>
               </label>
 
-              <select className="input input-bordered" name="category">
+              <select className="input input-bordered w-full" name="category">
                 <option value="todo">To-Do</option>
                 <option value="inProgress">In Progress</option>
                 <option value="done">Done</option>
@@ -114,7 +114,7 @@ const AddTask = () => {
           <input
             type="submit"
             value="Add Schedule"
-            className="btn w-full bg-orange-500 text-black mt-6"
+            className="btn w-full bg-green-500 text-black mt-6"
           />
         </form>
       </div>

@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
+import { useState } from "react";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
 const Navbar = () => {
   const { user, handleLogout } = useAuth();
@@ -26,16 +28,21 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-7 font-semibold md:text-xl items-center">
-          <>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/allTask">All Tasks</NavLink>
-            <NavLink to="/addTask">Add Tasks</NavLink>
-            <NavLink to="/aboutUs">About Us</NavLink>
-            <NavLink to="/profile">User Profile</NavLink>
-          </>
+          <NavLink to="/">Home</NavLink>
+          {user ? (
+            <>
+              <NavLink to="/allTask">All Tasks</NavLink>
+              <NavLink to="/addTask">Add Tasks</NavLink>
+            </>
+          ) : (
+            ""
+          )}
         </ul>
       </div>
       <div className="navbar-end">
+        <>
+          <ThemeToggle />
+        </>
         {user ? (
           <>
             <button
@@ -82,9 +89,14 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow right-0 z-10 space-y-2"
           >
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/allTask">All Tasks</NavLink>
-            <NavLink to="/aboutUs">About Us</NavLink>
-            <NavLink to="/profile">User Profile</NavLink>
+            {user ? (
+              <>
+                <NavLink to="/allTask">All Tasks</NavLink>
+                <NavLink to="/addTask">Add Tasks</NavLink>
+              </>
+            ) : (
+              ""
+            )}
           </ul>
         </div>
       </div>

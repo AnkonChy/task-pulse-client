@@ -6,6 +6,7 @@ import Home from "../pages/Home/Home";
 import AddTask from "../pages/AddTask/AddTask";
 import AllTask from "../pages/AllTask/AllTask";
 import UpdateTask from "../pages/UpdateTask/UpdateTask";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -26,18 +27,30 @@ const router = createBrowserRouter([
       },
       {
         path: "/addTask",
-        element: <AddTask></AddTask>,
+        element: (
+          <PrivateRoute>
+            <AddTask></AddTask>,
+          </PrivateRoute>
+        ),
       },
       {
         path: "/allTask",
-        element: <AllTask></AllTask>,
+        element: (
+          <PrivateRoute>
+            <AllTask></AllTask>,
+          </PrivateRoute>
+        ),
       },
       {
         path: "/updateTask/:id",
-        element: <UpdateTask></UpdateTask>,
+        element: (
+          <PrivateRoute>
+            <UpdateTask></UpdateTask>
+          </PrivateRoute>
+        ),
         loader: async ({ params }) => {
           const response = await fetch(
-            `http://localhost:4000/task/${params.id}`
+            `https://task-pulse-server-snowy.vercel.app/${params.id}`
           );
           return response.json();
         },

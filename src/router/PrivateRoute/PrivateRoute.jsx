@@ -1,9 +1,9 @@
-import React, { Children } from "react";
+
 import Loading from "../../components/Loading/Loading";
 import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 
-const PrivateRoute = () => {
+const PrivateRoute = ({children}) => {
   const { user, loading } = useAuth();
   const location = useLocation();
   if (loading) {
@@ -13,7 +13,7 @@ const PrivateRoute = () => {
   if (!user) {
     return <Navigate state={location.pathname}></Navigate>;
   }
-  return <div>{Children}</div>;
+  return <div>{children}</div>;
 };
 
 export default PrivateRoute;
