@@ -33,8 +33,14 @@ const router = createBrowserRouter([
         element: <AllTask></AllTask>,
       },
       {
-        path: "/updateTask",
+        path: "/updateTask/:id",
         element: <UpdateTask></UpdateTask>,
+        loader: async ({ params }) => {
+          const response = await fetch(
+            `http://localhost:4000/task/${params.id}`
+          );
+          return response.json();
+        },
       },
     ],
   },

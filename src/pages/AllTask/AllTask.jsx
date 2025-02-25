@@ -17,8 +17,8 @@ const AllTask = () => {
   }, [axiosPublic, user?.email]);
   console.log(tasks); 
   return (
-    <div className="w-1/2 mx-auto bg-slate-50 mt-14">
-      <h1 className="text-5xl font-bold text-center my-8">My Tasks</h1>
+    <div className="w-1/2 mx-auto bg-slate-50 pt-32">
+      <h1 className="text-4xl font-bold text-center my-4">My Tasks</h1>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

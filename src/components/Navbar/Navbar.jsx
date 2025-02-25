@@ -31,7 +31,6 @@ const Navbar = () => {
             <NavLink to="/allTask">All Tasks</NavLink>
             <NavLink to="/addTask">Add Tasks</NavLink>
             <NavLink to="/aboutUs">About Us</NavLink>
-            <NavLink to="/dashboard">Dashboard</NavLink>
             <NavLink to="/profile">User Profile</NavLink>
           </>
         </ul>
@@ -85,7 +84,6 @@ const Navbar = () => {
             <NavLink to="/">Home</NavLink>
             <NavLink to="/allTask">All Tasks</NavLink>
             <NavLink to="/aboutUs">About Us</NavLink>
-            <NavLink to="/dashboard">Dashboard</NavLink>
             <NavLink to="/profile">User Profile</NavLink>
           </ul>
         </div>

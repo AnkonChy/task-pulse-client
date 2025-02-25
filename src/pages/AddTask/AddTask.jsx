@@ -2,10 +2,12 @@ import { toast } from "react-toastify";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const AddTask = () => {
   const { user } = useAuth();
   const email = user.email;
+  const navigate = useNavigate();
 
   const axiosPublic = useAxiosPublic();
   const handleAddTask = (e) => {
@@ -46,6 +48,7 @@ const AddTask = () => {
           timer: 1500,
         });
       }
+      navigate("/allTask");
     });
   };
 

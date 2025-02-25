@@ -1,5 +1,6 @@
 import React from "react";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 import { FaEdit, FaFile, FaTrash } from "react-icons/fa";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 
@@ -32,16 +33,6 @@ const TaskTable = ({ idx, task, tasks, setTasks }) => {
         });
       }
     });
-
-    // .then((result) => {
-    //   if (result.isConfirmed) {
-    //     Swal.fire({
-    //       title: "Deleted!",
-    //       text: "Your file has been deleted.",
-    //       icon: "success"
-    //     });
-    //   }
-    // });
   };
   return (
     <>
@@ -59,7 +50,9 @@ const TaskTable = ({ idx, task, tasks, setTasks }) => {
               onClick={() => handleUpdate(_id)}
               className="bg-green-500 px-4 py-2 rounded text-white"
             >
-              <FaEdit />
+              <Link to={`/updateTask/${_id}`}>
+                <FaFile />
+              </Link>
             </button>
             {/* <button className="bg-green-500 px-4 py-2 rounded text-white">
                 <Link to={`/update/${_id}`}>
